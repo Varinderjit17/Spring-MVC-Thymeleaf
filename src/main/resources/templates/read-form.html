@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Form Results</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+
+<body>
+<form th:action="@{/read-form}" method="GET">
+    <input type="text" placeholder="What's your name?" name="myName">
+    <input type="submit">
+</form>
+<h1 th:text ="'Your name is ' + ${myName}" class="heading"></h1>
+</body>
+</html>

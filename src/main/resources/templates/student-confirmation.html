@@ -1,0 +1,11 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Student</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+
+<body>
+<h1 th:text ="'Your name is ' + ${student.firstName} + ' '+ ${student.lastName}"></h1>
+</body>
+</html>

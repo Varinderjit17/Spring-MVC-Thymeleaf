@@ -4,6 +4,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class HelloWorldController {
@@ -19,11 +20,18 @@ public class HelloWorldController {
         return "hello-world-results";
     }
 
-    //read form data
+    //read form data using HttpServletRequest
     @RequestMapping("/read-form")
     public String readForm(HttpServletRequest request, Model model) {
         String name = request.getParameter("myName");
         model.addAttribute("myName", name);
+        return "read-form";
+    }
+
+    //read form data using @requestParam
+    @RequestMapping("/read-form-two")
+    public String readFormData(@RequestParam("myName") String myName, Model model) {
+        model.addAttribute("myName", myName);
         return "read-form";
     }
 }

@@ -7,8 +7,13 @@
 
 <body>
 <form th:action="@{/processStudentForm}" method="POST" th:object="${student}">
-    <input type="text" placeholder="First Name" th:field="*{firstName}" >
-    <input type="text" placeholder="Last Name" th:field="*{lastName}">
+    <input type="text" placeholder="First Name" th:field="*{firstName}" ><br>
+    <input type="text" placeholder="Last Name" th:field="*{lastName}"><br>
+    <select th:field="*{country}">
+        <option th:value="brazil">Brazil</option>
+        <option th:value="america">America</option>
+        <option th:value="india">India</option>
+    </select>
     <input type="submit">
 </form>
 </body>

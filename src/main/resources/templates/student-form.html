@@ -7,13 +7,28 @@
 
 <body>
 <form th:action="@{/processStudentForm}" method="POST" th:object="${student}">
-    <input type="text" placeholder="First Name" th:field="*{firstName}" ><br>
-    <input type="text" placeholder="Last Name" th:field="*{lastName}"><br>
+    <input type="text" placeholder="First Name" th:field="*{firstName}" ><br><br>
+    <input type="text" placeholder="Last Name" th:field="*{lastName}"><br><br>
+<!--    <select th:field="*{country}">-->
+<!--        <option th:value="brazil">Brazil</option>-->
+<!--        <option th:value="america">America</option>-->
+<!--        <option th:value="india">India</option>-->
+<!--    </select>-->
+
+<!--    Dynamic select options-->
     <select th:field="*{country}">
-        <option th:value="brazil">Brazil</option>
-        <option th:value="america">America</option>
-        <option th:value="india">India</option>
-    </select>
+        <option th:each="country: ${countries}" th:value="${country}" th:text="${country}"/>
+    </select><br><br>
+
+<!--    Favorite programming language:-->
+<!--    <input type="radio" th:field="*{language}" th:value="go">GO<br><br>-->
+<!--    <input type="radio" th:field="*{language}" th:value="java">JAVA<br><br>-->
+<!--    <input type="radio" th:field="*{language}" th:value="go">PYTHON<br><br>-->
+
+<!--    Dynamic input radio-->
+    <input type="radio" th:field="*{language}" th:each="language: ${languages}" th:value="${language}" th:text="${language}"><br><br>
+
+
     <input type="submit">
 </form>
 </body>
